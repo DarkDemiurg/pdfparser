@@ -22,6 +22,7 @@ def test_command_line():
 
 
 def test_parser():
+    """Test Parser class"""
     parser = Parser()
     assert isinstance(parser.text_extractor, PDFMinerSixExtractor)
     assert isinstance(parser.xml_extractor, PDFMinerSixExtractor)
@@ -57,6 +58,30 @@ def test_xml():
     result = runner.invoke(cli.main, args=['--output-type', 'XML', 'data/220413.pdf'])
     assert result.exit_code == 0
     assert '<?xml version="1.0" ?>' in result.output
+
+
+def test_file_output(tmp_path):
+    """Test file output"""
+    output = tmp_path / 'output.txt'
+    runner = CliRunner()
+    result = runner.invoke(cli.main, args=['--output', str(output), 'data/220413.pdf'])
+    assert result.exit_code == 0
+    assert 'Portfolio XXX 5995' in output.read_text()
+
+    output = tmp_path / 'output.html'
+    runner = CliRunner()
+    result = runner.invoke(cli.main, args=['--output-type', 'HTML', '--output', str(output), 'data/220413.pdf'])
+    assert result.exit_code == 0
+    text = output.read_text()
+    assert '<html>' in text
+    assert 'Portfolio XXX 5995' in text
+
+    output = tmp_path / 'output.xml'
+    runner = CliRunner()
+    result = runner.invoke(cli.main, args=['--output-type', 'XML', '--output', str(output), 'data/220413.pdf'])
+    assert result.exit_code == 0
+    text = output.read_text()
+    assert '<?xml version="1.0" ?>' in text
 
 
 def test_command_line_help():
