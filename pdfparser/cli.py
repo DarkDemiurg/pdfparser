@@ -10,16 +10,19 @@ from pdfparser.parser import Parser
 @click.command()
 @click.argument('filename', type=click.Path(exists=True))
 @click.option(
-    '--output-type', default='TXT', show_default=True, type=click.Choice(['TXT', 'HTML', 'XML'], case_sensitive=False)
+    '--output-type',
+    default='TXT',
+    show_default=True,
+    type=click.Choice(['TXT', 'HTML', 'XML', 'CSV'], case_sensitive=False),
 )
 @click.option(
-    '--extractor',
+    '--text_extractor',
     default='pdfminer.six',
     show_default=True,
     type=click.Choice(['pdfminer.six', 'PyPDF2'], case_sensitive=False),
 )
 @click.option('--output', type=click.Path(), help='Output file name')
-def main(filename: str, output_type: str, extractor: str, output: str) -> None:
+def main(filename: str, output_type: str, text_extractor: str, output: str) -> None:
     """PDF parser"""
     click.echo("pdfparser")
     click.echo("=" * len("pdfparser"))
@@ -30,7 +33,7 @@ def main(filename: str, output_type: str, extractor: str, output: str) -> None:
     if pdf.exists():
         parser = Parser()
 
-        if extractor.lower() == 'pypdf2':
+        if text_extractor.lower() == 'pypdf2':
             parser = Parser(PyPDF2Extractor())
 
         result = ''
@@ -44,6 +47,9 @@ def main(filename: str, output_type: str, extractor: str, output: str) -> None:
 
         if output_type == 'xml':
             result = parser.get_xml(pdf)
+
+        if output_type == 'csv':
+            result = parser.get_csv(pdf)
 
         if output is not None:
             with open(output, 'w') as f:

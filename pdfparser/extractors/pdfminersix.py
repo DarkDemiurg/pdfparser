@@ -10,7 +10,7 @@ from pdfparser.extractors.abc_extractors import HtmlExtractor, TextExtractor, Xm
 
 
 class PDFMinerSixExtractor(TextExtractor, HtmlExtractor, XmlExtractor, ABC):
-    """Concrete class for pdfminer.six extractor"""
+    """Specific class for pdfminer.six extractor"""
 
     def get_text(self, filename: Path) -> str:
         """Function for getting text from PDF

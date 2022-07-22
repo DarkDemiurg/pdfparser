@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0] - 2022-07-22
+### Added
+- CSV export
+
 ## [0.2.6] - 2022-07-22
 ### Added
 - Test file output

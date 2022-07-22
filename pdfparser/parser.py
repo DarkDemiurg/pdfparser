@@ -2,8 +2,9 @@
 
 from pathlib import Path
 
-from pdfparser.extractors.abc_extractors import HtmlExtractor, TextExtractor, XmlExtractor
+from pdfparser.extractors.abc_extractors import CsvExtractor, HtmlExtractor, TextExtractor, XmlExtractor
 from pdfparser.extractors.pdfminersix import PDFMinerSixExtractor
+from pdfparser.extractors.tabulapy import TabulaExtractor
 
 
 class Parser:
@@ -14,6 +15,7 @@ class Parser:
         text_extractor: TextExtractor = PDFMinerSixExtractor(),
         xml_extractor: XmlExtractor = PDFMinerSixExtractor(),
         html_extractor: HtmlExtractor = PDFMinerSixExtractor(),
+        csv_extractor: CsvExtractor = TabulaExtractor(),
     ) -> None:
         """Constructor
 
@@ -21,10 +23,12 @@ class Parser:
             text_extractor (TextExtractor): extractor for text
             xml_extractor (XmlExtractor): extractor for XML
             html_extractor (HtmlExtractor): extractor for HTML
+            csv_extractor (CsvExtractor): extractor for CSV
         """
         self._text_extractor = text_extractor
         self._xml_extractor = xml_extractor
         self._html_extractor = html_extractor
+        self._csv_extractor = csv_extractor
 
     @property
     def text_extractor(self) -> TextExtractor:
@@ -89,6 +93,27 @@ class Parser:
         """
         self._html_extractor = html_extractor
 
+    @property
+    def csv_extractor(self) -> CsvExtractor:
+        """Current CSV extractor
+
+        Returns:
+            CsvExtractor: current CSV extractor object
+        """ ""
+        return self._csv_extractor
+
+    @csv_extractor.setter
+    def csv_extractor(self, csv_extractor: CsvExtractor) -> None:
+        """Current CSV extractor setter
+
+        Args:
+            csv_extractor (CsvExtractor): new CSV extractor object
+
+        Returns:
+            None: None
+        """
+        self._csv_extractor = csv_extractor
+
     def get_text(self, filename: Path) -> str:
         """Function for getting text from PDF
 
@@ -121,3 +146,14 @@ class Parser:
             str: extracted HTML
         """
         return self._html_extractor.get_html(filename)
+
+    def get_csv(self, filename: Path) -> str:
+        """Function for getting CSV from PDF
+
+        Args:
+            filename (pathlib.Path): PDF file path
+
+        Returns:
+            str: extracted CSV
+        """
+        return self._csv_extractor.get_csv(filename)

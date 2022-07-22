@@ -8,7 +8,7 @@ from pdfparser.extractors.abc_extractors import TextExtractor
 
 
 class PyPDF2Extractor(TextExtractor):
-    """Concrete class for PyPDF2 extractor"""
+    """Specific class for PyPDF2 extractor"""
 
     def get_text(self, filename: Path) -> str:
         """Function for getting text from PDF

@@ -1,4 +1,4 @@
-"""ABC for text extractors"""
+"""ABC for PDF extractors"""
 from abc import ABC, abstractmethod
 from pathlib import Path
 
@@ -47,5 +47,21 @@ class XmlExtractor(ABC):
 
         Returns:
             str: extracted XML
+        """
+        pass  # pragma: no cover
+
+
+class CsvExtractor(ABC):
+    """Abstract base class for CSV extractors"""
+
+    @abstractmethod
+    def get_csv(self, filename: Path) -> str:
+        """Function for getting CSV from PDF
+
+        Args:
+            filename (pathlib.Path): PDF file path
+
+        Returns:
+            str: extracted CSV
         """
         pass  # pragma: no cover
