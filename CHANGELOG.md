@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.5] - 2022-07-22
+### Changed
+- Fix coverage
+
 ## [0.2.4] - 2022-07-22
 ### Changed
 - Migration to GitHub

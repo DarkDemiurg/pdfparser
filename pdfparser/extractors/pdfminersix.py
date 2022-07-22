@@ -1,4 +1,4 @@
-"""Concrete extractor based on `pdfminer.six` library"""
+"""Specific extractor based on `pdfminer.six` library"""
 from abc import ABC
 from io import StringIO
 from pathlib import Path

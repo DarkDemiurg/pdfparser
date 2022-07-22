@@ -16,7 +16,7 @@ class TextExtractor(ABC):
         Returns:
             str: extracted text
         """
-        pass
+        pass  # pragma: no cover
 
 
 class HtmlExtractor(ABC):
@@ -32,7 +32,7 @@ class HtmlExtractor(ABC):
         Returns:
             str: extracted HTML
         """
-        pass
+        pass  # pragma: no cover
 
 
 class XmlExtractor(ABC):
@@ -48,4 +48,4 @@ class XmlExtractor(ABC):
         Returns:
             str: extracted XML
         """
-        pass
+        pass  # pragma: no cover
