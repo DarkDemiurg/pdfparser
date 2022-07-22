@@ -42,16 +42,16 @@ Options:
 - ### [pdfminer.six](https://github.com/pdfminer/pdfminer.six)
 - ### [PyPDF2](https://github.com/py-pdf/PyPDF2)
 - ### [tabula-py](https://github.com/chezou/tabula-py)
-- ### [pdftables.com](pdftables.com) via [python API](https://github.com/pdftables/python-pdftables-api)
+- ### [pdftables.com](http://pdftables.com) via [python API](https://github.com/pdftables/python-pdftables-api)
 
 ### Extractors feature table
 
-| Extractors/Type                                          | TXT |        HTML         | XML  | CSV   |
-|----------------------------------------------------------|:---:|:-------------------:|:----:|:-----:|
-| [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| [PyPDF2](https://github.com/py-pdf/PyPDF2)               | :heavy_check_mark: | :x: | :x: | :x: |
-| [tabula-py](https://github.com/chezou/tabula-py)         | :x: | :x: | :x: | :heavy_check_mark: |
-| [pdftables.com](pdftables.com)                           | :x: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Extractors                                          | TXT |        HTML         | XML  | CSV   |     | Commercial     |
+|----------------------------------------------------------|:---:|:---:|:----:|:---:|:---:|:---:|
+| [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |     | :x: |
+| [PyPDF2](https://github.com/py-pdf/PyPDF2)               | :heavy_check_mark: | :x: | :x: | :x: |     | :x: |
+| [tabula-py](https://github.com/chezou/tabula-py)         | :x: | :x: | :x: | :heavy_check_mark: |     | :x: |
+| [pdftables.com](http://pdftables.com)                    | :x: | :heavy_check_mark: | :x: | :heavy_check_mark: |     |  :heavy_check_mark:: |
 
 ## Credits
 
