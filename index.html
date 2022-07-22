@@ -258,6 +258,40 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#credits" class="md-nav__link">
     Credits
   </a>
@@ -392,6 +426,40 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#credits" class="md-nav__link">
     Credits
   </a>
@@ -426,11 +494,34 @@
 <!-- BEGIN INCLUDE ../README.md -->
 <p><a href="https://codecov.io/gh/DarkDemiurg/pdfparser"><img alt="codecov" src="https://codecov.io/gh/DarkDemiurg/pdfparser/branch/master/graph/badge.svg?token=tHkHPxsQGr" /></a></p>
 <h2 id="pdf-parser">PDF parser<a class="headerlink" href="#pdf-parser" title="Permanent link">&para;</a></h2>
-<p>PDF parser library</p>
+<p>PDF parser app</p>
 <h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Extract text, html or xml from PDF file</li>
+<li>Extract text, html, xml or csv from PDF file</li>
 </ul>
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h3>
+<h4 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Java 8+</li>
+</ul>
+<h4 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h4>
+<ul>
+<li>3.8</li>
+<li>3.9</li>
+</ul>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Usage: pdfparser <span class="o">[</span>OPTIONS<span class="o">]</span> FILENAME
+
+  PDF parser
+
+Options:
+  --output-type <span class="o">[</span>TXT<span class="p">|</span>HTML<span class="p">|</span>XML<span class="p">|</span>CSV<span class="o">]</span>
+                                  <span class="o">[</span>default: TXT<span class="o">]</span>
+  --text_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>PyPDF2<span class="o">]</span>
+                                  <span class="o">[</span>default: pdfminer.six<span class="o">]</span>
+  --output PATH                   Output file name
+  --help                          Show this message and exit.
+</code></pre></div>
 <h3 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">&para;</a></h3>
 <p>This package was created with <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a> and the <a href="https://github.com/DarkDemiurg/cookiecutter-pypackage">DarkDemiurg/cookiecutter-pypackage</a> project template.</p>
 <!-- END INCLUDE -->
