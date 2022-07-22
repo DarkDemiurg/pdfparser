@@ -1,8 +1,10 @@
 [![codecov](https://codecov.io/gh/DarkDemiurg/pdfparser/branch/master/graph/badge.svg?token=tHkHPxsQGr)](https://codecov.io/gh/DarkDemiurg/pdfparser)
 
 # PDF parser
+Version 0.3.0
 
-PDF parser app
+# Author
+[DarkDemiurg](mailto:daefimov@gmail.com)
 
 ## Features
 
@@ -27,10 +29,29 @@ Options:
                                   [default: TXT]
   --text_extractor [pdfminer.six|PyPDF2]
                                   [default: pdfminer.six]
+  --html_extractor [pdfminer.six|pdftables]
+                                  [default: pdfminer.six]
+  --csv_extractor [tabula|pdftables]
+                                  [default: tabula]
+  --pdftables_key TEXT            pdftables.com API key
   --output PATH                   Output file name
   --help                          Show this message and exit.
-
 ```
+
+## Extractors
+- ### [pdfminer.six](https://github.com/pdfminer/pdfminer.six)
+- ### [PyPDF2](https://github.com/py-pdf/PyPDF2)
+- ### [tabula-py](https://github.com/chezou/tabula-py)
+- ### [pdftables.com](pdftables.com) via [python API](https://github.com/pdftables/python-pdftables-api)
+
+### Extractors feature table
+
+| Extractors/Type                                          | TXT |        HTML         | XML  | CSV   |
+|----------------------------------------------------------|:---:|:-------------------:|:----:|:-----:|
+| [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| [PyPDF2](https://github.com/py-pdf/PyPDF2)               | :heavy_check_mark: | :x: | :x: | :x: |
+| [tabula-py](https://github.com/chezou/tabula-py)         | :x: | :x: | :x: | :heavy_check_mark: |
+| [pdftables.com](pdftables.com)                           | :x: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 
 ## Credits
 

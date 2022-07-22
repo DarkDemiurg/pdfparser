@@ -3,6 +3,7 @@ from pathlib import Path
 
 import click
 
+from pdfparser.extractors.pdftables import PdfTablesExtractor
 from pdfparser.extractors.pypdf2 import PyPDF2Extractor
 from pdfparser.parser import Parser
 
@@ -21,8 +22,29 @@ from pdfparser.parser import Parser
     show_default=True,
     type=click.Choice(['pdfminer.six', 'PyPDF2'], case_sensitive=False),
 )
+@click.option(
+    '--html_extractor',
+    default='pdfminer.six',
+    show_default=True,
+    type=click.Choice(['pdfminer.six', 'pdftables'], case_sensitive=False),
+)
+@click.option(
+    '--csv_extractor',
+    default='tabula',
+    show_default=True,
+    type=click.Choice(['tabula', 'pdftables'], case_sensitive=False),
+)
+@click.option('--pdftables_key', type=str, help='pdftables.com API key')
 @click.option('--output', type=click.Path(), help='Output file name')
-def main(filename: str, output_type: str, text_extractor: str, output: str) -> None:
+def main(
+    filename: str,
+    output_type: str,
+    text_extractor: str,
+    html_extractor: str,
+    csv_extractor: str,
+    pdftables_key: str,
+    output: str,
+) -> None:
     """PDF parser"""
     click.echo("pdfparser")
     click.echo("=" * len("pdfparser"))
@@ -34,7 +56,17 @@ def main(filename: str, output_type: str, text_extractor: str, output: str) -> N
         parser = Parser()
 
         if text_extractor.lower() == 'pypdf2':
-            parser = Parser(PyPDF2Extractor())
+            parser.text_extractor = PyPDF2Extractor()
+
+        if csv_extractor.lower() == 'pdftables' and pdftables_key is not None:
+            parser.csv_extractor = PdfTablesExtractor(pdftables_key)
+        else:
+            click.echo("Require pdftables.com API key for working. Abort.")
+
+        if html_extractor.lower() == 'pdftables' and pdftables_key is not None:
+            parser.html_extractor = PdfTablesExtractor(pdftables_key)
+        else:
+            click.echo("Require pdftables.com API key for working. Abort.")
 
         result = ''
 

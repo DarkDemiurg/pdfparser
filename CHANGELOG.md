@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.0] - 2022-07-22
+### Added
+- CSV & HTML extract via pdftables.com
+
 ## [0.3.0] - 2022-07-22
 ### Added
 - CSV export

@@ -5,10 +5,13 @@ from click.testing import CliRunner
 
 from pdfparser import cli
 from pdfparser.extractors.pdfminersix import PDFMinerSixExtractor
+from pdfparser.extractors.pdftables import PdfTablesExtractor
 from pdfparser.extractors.pypdf2 import PyPDF2Extractor
+from pdfparser.extractors.tabulapy import TabulaExtractor
 from pdfparser.parser import Parser
 
 TEST_PDF = 'data/220413.pdf'
+PDFTABLES_API_KEY = 'bo02tai5b8t0'
 
 
 def test_command_line():
@@ -31,16 +34,42 @@ def test_parser():
     assert isinstance(parser.html_extractor, PDFMinerSixExtractor)
 
     parser.text_extractor = PyPDF2Extractor()
-    parser.xml_extractor = PyPDF2Extractor()
-    parser.html_extractor = PyPDF2Extractor()
     assert isinstance(parser.text_extractor, PyPDF2Extractor)
+    parser.xml_extractor = PyPDF2Extractor()
+    assert isinstance(parser.xml_extractor, PyPDF2Extractor)
+    parser.html_extractor = PdfTablesExtractor(PDFTABLES_API_KEY)
+    assert isinstance(parser.html_extractor, PdfTablesExtractor)
+    parser.csv_extractor = TabulaExtractor()
+    assert isinstance(parser.csv_extractor, TabulaExtractor)
 
 
-def test_pypdf2():
-    """Test the CLI help."""
+def test_text_extractor():
+    """Test text_extractor."""
     runner = CliRunner()
 
     result = runner.invoke(cli.main, args=['--text_extractor', 'PyPDF2', TEST_PDF])
+    assert result.exit_code == 0
+
+
+def test_html_extractor():
+    """Test html_extractor."""
+    runner = CliRunner()
+
+    result = runner.invoke(
+        cli.main,
+        args=['--html_extractor', 'pdftables', '--pdftables_key', PDFTABLES_API_KEY, '--output-type', 'HTML', TEST_PDF],
+    )
+    assert result.exit_code == 0
+
+
+def test_csv_extractor():
+    """Test csv_extractor."""
+    runner = CliRunner()
+
+    result = runner.invoke(
+        cli.main,
+        args=['--csv_extractor', 'pdftables', '--pdftables_key', PDFTABLES_API_KEY, '--output-type', 'CSV', TEST_PDF],
+    )
     assert result.exit_code == 0
 
 

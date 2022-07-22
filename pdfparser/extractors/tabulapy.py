@@ -19,12 +19,10 @@ class TabulaExtractor(CsvExtractor):
         Returns:
             str: extracted CSV
         """
+        buf = StringIO()
         dataframes = tabula.read_pdf(filename, pages='all')
         if dataframes:
-            buf = StringIO()
             for frame in dataframes:
                 buf.write(frame.to_csv(sep=';'))
 
-            return buf.getvalue()
-
-        return ''
+        return buf.getvalue()
