@@ -247,7 +247,14 @@
     PDF parser
   </a>
   
-    <nav class="md-nav" aria-label="PDF parser">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    Author
+  </a>
+  
+    <nav class="md-nav" aria-label="Author">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -288,6 +295,54 @@
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractors" class="md-nav__link">
+    Extractors
+  </a>
+  
+    <nav class="md-nav" aria-label="Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdfminersix" class="md-nav__link">
+    pdfminer.six
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pypdf2" class="md-nav__link">
+    PyPDF2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabula-py" class="md-nav__link">
+    tabula-py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdftablescom-via-python-api" class="md-nav__link">
+    pdftables.com via python API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractors-feature-table" class="md-nav__link">
+    Extractors feature table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -415,7 +470,14 @@
     PDF parser
   </a>
   
-    <nav class="md-nav" aria-label="PDF parser">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    Author
+  </a>
+  
+    <nav class="md-nav" aria-label="Author">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -460,6 +522,54 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#extractors" class="md-nav__link">
+    Extractors
+  </a>
+  
+    <nav class="md-nav" aria-label="Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdfminersix" class="md-nav__link">
+    pdfminer.six
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pypdf2" class="md-nav__link">
+    PyPDF2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabula-py" class="md-nav__link">
+    tabula-py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdftablescom-via-python-api" class="md-nav__link">
+    pdftables.com via python API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractors-feature-table" class="md-nav__link">
+    Extractors feature table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#credits" class="md-nav__link">
     Credits
   </a>
@@ -494,7 +604,9 @@
 <!-- BEGIN INCLUDE ../README.md -->
 <p><a href="https://codecov.io/gh/DarkDemiurg/pdfparser"><img alt="codecov" src="https://codecov.io/gh/DarkDemiurg/pdfparser/branch/master/graph/badge.svg?token=tHkHPxsQGr" /></a></p>
 <h2 id="pdf-parser">PDF parser<a class="headerlink" href="#pdf-parser" title="Permanent link">&para;</a></h2>
-<p>PDF parser app</p>
+<p>Version 0.4.0</p>
+<h2 id="author">Author<a class="headerlink" href="#author" title="Permanent link">&para;</a></h2>
+<p><a href="mailto:daefimov@gmail.com">DarkDemiurg</a></p>
 <h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Extract text, html, xml or csv from PDF file</li>
@@ -519,9 +631,71 @@ Options:
                                   <span class="o">[</span>default: TXT<span class="o">]</span>
   --text_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>PyPDF2<span class="o">]</span>
                                   <span class="o">[</span>default: pdfminer.six<span class="o">]</span>
+  --html_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>pdftables<span class="o">]</span>
+                                  <span class="o">[</span>default: pdfminer.six<span class="o">]</span>
+  --csv_extractor <span class="o">[</span>tabula<span class="p">|</span>pdftables<span class="o">]</span>
+                                  <span class="o">[</span>default: tabula<span class="o">]</span>
+  --pdftables_key TEXT            pdftables.com API key
   --output PATH                   Output file name
   --help                          Show this message and exit.
 </code></pre></div>
+<h3 id="extractors">Extractors<a class="headerlink" href="#extractors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<h4 id="pdfminersix"><a href="https://github.com/pdfminer/pdfminer.six">pdfminer.six</a><a class="headerlink" href="#pdfminersix" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<h4 id="pypdf2"><a href="https://github.com/py-pdf/PyPDF2">PyPDF2</a><a class="headerlink" href="#pypdf2" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<h4 id="tabula-py"><a href="https://github.com/chezou/tabula-py">tabula-py</a><a class="headerlink" href="#tabula-py" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<h4 id="pdftablescom-via-python-api"><a href="../pdftables.com">pdftables.com</a> via <a href="https://github.com/pdftables/python-pdftables-api">python API</a><a class="headerlink" href="#pdftablescom-via-python-api" title="Permanent link">&para;</a></h4>
+</li>
+</ul>
+<h4 id="extractors-feature-table">Extractors feature table<a class="headerlink" href="#extractors-feature-table" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Extractors/Type</th>
+<th align="center">TXT</th>
+<th align="center">HTML</th>
+<th align="center">XML</th>
+<th align="center">CSV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/pdfminer/pdfminer.six">pdfminer.six</a></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td><a href="https://github.com/py-pdf/PyPDF2">PyPDF2</a></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td><a href="https://github.com/chezou/tabula-py">tabula-py</a></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+</tr>
+<tr>
+<td><a href="../pdftables.com">pdftables.com</a></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+</tr>
+</tbody>
+</table>
 <h3 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">&para;</a></h3>
 <p>This package was created with <a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a> and the <a href="https://github.com/DarkDemiurg/cookiecutter-pypackage">DarkDemiurg/cookiecutter-pypackage</a> project template.</p>
 <!-- END INCLUDE -->
