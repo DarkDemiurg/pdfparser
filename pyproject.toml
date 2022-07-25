@@ -47,6 +47,7 @@ twine  = { version = "^4.0.1", optional = true}
 pre-commit = {version = "^2.20.0", optional = true}
 toml = {version = "^0.10.2", optional = true}
 bump2version = {version = "^1.0.1", optional = true}
+requests-mock = {version = "^1.9.3", optional = true}
 
 [tool.poetry.extras]
 test = [
@@ -60,7 +61,8 @@ test = [
     "PyPDF2",
     "pdfminer.six",
     "tabula-py",
-    "pdftables-api"
+    "pdftables-api",
+    "requests-mock"
     ]
 
 dev = ["tox", "pre-commit", "virtualenv", "pip", "twine", "toml", "bump2version"]

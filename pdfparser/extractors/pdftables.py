@@ -3,10 +3,10 @@ from pathlib import Path
 
 import pdftables_api
 
-from pdfparser.extractors.abc_extractors import CsvExtractor, HtmlExtractor
+from pdfparser.extractors.abc_extractors import CsvExtractor, HtmlExtractor, XmlExtractor
 
 
-class PdfTablesExtractor(CsvExtractor, HtmlExtractor):
+class PdfTablesExtractor(CsvExtractor, HtmlExtractor, XmlExtractor):
     """Specific class for pdftables extractor"""
 
     def __init__(self, api_key: str):
@@ -40,3 +40,15 @@ class PdfTablesExtractor(CsvExtractor, HtmlExtractor):
         """
         client = pdftables_api.Client(self._api_key)
         return client.csv(filename)
+
+    def get_xml(self, filename: Path) -> str:
+        """Function for getting XML from PDF
+
+        Args:
+            filename (pathlib.Path): PDF file path
+
+        Returns:
+            str: extracted XML
+        """
+        client = pdftables_api.Client(self._api_key)
+        return client.xml(filename)

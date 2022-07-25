@@ -48,10 +48,10 @@ Options:
 
 | Extractors                                          | TXT |        HTML         | XML  | CSV   |     | Commercial     |
 |----------------------------------------------------------|:---:|:---:|:----:|:---:|:---:|:---:|
-| [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |     | :x: |
+| [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |     | :x: |
 | [PyPDF2](https://github.com/py-pdf/PyPDF2)               | :heavy_check_mark: | :x: | :x: | :x: |     | :x: |
 | [tabula-py](https://github.com/chezou/tabula-py)         | :x: | :x: | :x: | :heavy_check_mark: |     | :x: |
-| [pdftables.com](http://pdftables.com)                    | :x: | :heavy_check_mark: | :x: | :heavy_check_mark: |     |  :heavy_check_mark:: |
+| [pdftables.com](http://pdftables.com)                    | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |     |  :heavy_check_mark: |
 
 ## Credits
 

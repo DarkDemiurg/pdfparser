@@ -34,6 +34,12 @@ from pdfparser.parser import Parser
     show_default=True,
     type=click.Choice(['tabula', 'pdftables'], case_sensitive=False),
 )
+@click.option(
+    '--xml_extractor',
+    default='pdfminer.six',
+    show_default=True,
+    type=click.Choice(['pdfminer.six', 'pdftables'], case_sensitive=False),
+)
 @click.option('--pdftables_key', type=str, help='pdftables.com API key')
 @click.option('--output', type=click.Path(), help='Output file name')
 def main(
@@ -42,6 +48,7 @@ def main(
     text_extractor: str,
     html_extractor: str,
     csv_extractor: str,
+    xml_extractor: str,
     pdftables_key: str,
     output: str,
 ) -> None:
@@ -58,15 +65,23 @@ def main(
         if text_extractor.lower() == 'pypdf2':
             parser.text_extractor = PyPDF2Extractor()
 
-        if csv_extractor.lower() == 'pdftables' and pdftables_key is not None:
-            parser.csv_extractor = PdfTablesExtractor(pdftables_key)
-        else:
-            click.echo("Require pdftables.com API key for working. Abort.")
+        if csv_extractor.lower() == 'pdftables':
+            if pdftables_key is not None:
+                parser.csv_extractor = PdfTablesExtractor(pdftables_key)
+            else:
+                click.echo("Require pdftables.com API key for working. Abort.")
 
-        if html_extractor.lower() == 'pdftables' and pdftables_key is not None:
-            parser.html_extractor = PdfTablesExtractor(pdftables_key)
-        else:
-            click.echo("Require pdftables.com API key for working. Abort.")
+        if html_extractor.lower() == 'pdftables':
+            if pdftables_key is not None:
+                parser.html_extractor = PdfTablesExtractor(pdftables_key)
+            else:
+                click.echo("Require pdftables.com API key for working. Abort.")
+
+        if xml_extractor.lower() == 'pdftables':
+            if pdftables_key is not None:
+                parser.xml_extractor = PdfTablesExtractor(pdftables_key)
+            else:
+                click.echo("Require pdftables.com API key for working. Abort.")
 
         result = ''
 

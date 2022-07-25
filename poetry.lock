@@ -743,7 +743,7 @@ diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
 name = "pypdf2"
-version = "2.7.0"
+version = "2.8.0"
 description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
 category = "main"
 optional = false
@@ -870,6 +870,22 @@ urllib3 = ">=1.21.1,<1.27"
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "requests-mock"
+version = "1.9.3"
+description = "Mock out responses from the requests package"
+category = "main"
+optional = true
+python-versions = "*"
+
+[package.dependencies]
+requests = ">=2.3,<3"
+six = "*"
+
+[package.extras]
+fixture = ["fixtures"]
+test = ["fixtures", "mock", "purl", "pytest", "sphinx", "testrepository (>=0.0.18)", "testtools"]
 
 [[package]]
 name = "requests-toolbelt"
@@ -1085,12 +1101,12 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [extras]
 dev = ["tox", "pre-commit", "virtualenv", "pip", "twine", "toml", "bump2version"]
 doc = ["mkdocs", "mkdocs-include-markdown-plugin", "mkdocs-material", "mkdocstrings", "mkdocs-autorefs"]
-test = ["pytest", "black", "isort", "mypy", "flake8", "flake8-docstrings", "pytest-cov", "PyPDF2", "pdfminer.six", "tabula-py", "pdftables-api"]
+test = ["pytest", "black", "isort", "mypy", "flake8", "flake8-docstrings", "pytest-cov", "PyPDF2", "pdfminer.six", "tabula-py", "pdftables-api", "requests-mock"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.*,<3.11"
-content-hash = "122a9d8b015fd31614e81756cf3f2eb9c8c3763af125bc8f31728024b87040c8"
+content-hash = "37ac9af2f2670cfaebbb44b0d8fcafa37ecee37f711b7f7bab0d48410f1be343"
 
 [metadata.files]
 atomicwrites = []
@@ -1234,8 +1250,8 @@ pygments = []
 pymdown-extensions = []
 pyparsing = []
 pypdf2 = [
-    {file = "PyPDF2-2.7.0-py3-none-any.whl", hash = "sha256:9c464ba460fd36e2548b9b9fde476a85abba976c2ed611fa687712196776c2fc"},
-    {file = "PyPDF2-2.7.0.tar.gz", hash = "sha256:e1f7e9ca2fdab28c6fcd6f38343ff9706825b847c0e82a08a704fb734cd62f30"},
+    {file = "PyPDF2-2.8.0-py3-none-any.whl", hash = "sha256:90d12f0e57e7a41359fc801fce1e87f6f81764d28a89a7f30d8795b3ff67a006"},
+    {file = "PyPDF2-2.8.0.tar.gz", hash = "sha256:69ddfd724ddfe07010ef3a56c95bf1218553ec09e283636ecf0f072ec119599a"},
 ]
 pytest = []
 pytest-cov = []
@@ -1249,6 +1265,10 @@ pyyaml = []
 pyyaml-env-tag = []
 readme-renderer = []
 requests = []
+requests-mock = [
+    {file = "requests-mock-1.9.3.tar.gz", hash = "sha256:8d72abe54546c1fc9696fa1516672f1031d72a55a1d66c85184f972a24ba0eba"},
+    {file = "requests_mock-1.9.3-py2.py3-none-any.whl", hash = "sha256:0a2d38a117c08bb78939ec163522976ad59a6b7fdd82b709e23bb98004a44970"},
+]
 requests-toolbelt = []
 rfc3986 = []
 rich = []

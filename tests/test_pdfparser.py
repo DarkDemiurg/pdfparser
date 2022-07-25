@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Tests for `pdfparser` package."""
-
+import requests_mock
 from click.testing import CliRunner
 
 from pdfparser import cli
@@ -11,7 +11,8 @@ from pdfparser.extractors.tabulapy import TabulaExtractor
 from pdfparser.parser import Parser
 
 TEST_PDF = 'data/220413.pdf'
-PDFTABLES_API_KEY = 'bo02tai5b8t0'
+# PDFTABLES_API_KEY = 'bo02tai5b8t0'
+PDFTABLES_API_KEY = 'fake_key'
 
 
 def test_command_line():
@@ -51,26 +52,70 @@ def test_text_extractor():
     assert result.exit_code == 0
 
 
-def test_html_extractor():
+def test_pdftables_html_extractor():
     """Test html_extractor."""
-    runner = CliRunner()
+    with requests_mock.Mocker() as m:
+        m.post('https://pdftables.com/api', text='html output')
+        runner = CliRunner()
 
-    result = runner.invoke(
-        cli.main,
-        args=['--html_extractor', 'pdftables', '--pdftables_key', PDFTABLES_API_KEY, '--output-type', 'HTML', TEST_PDF],
-    )
-    assert result.exit_code == 0
+        result = runner.invoke(
+            cli.main,
+            args=[
+                '--html_extractor',
+                'pdftables',
+                '--pdftables_key',
+                PDFTABLES_API_KEY,
+                '--output-type',
+                'HTML',
+                TEST_PDF,
+            ],
+        )
+        assert result.exit_code == 0
+        assert "html output" in result.output
 
 
-def test_csv_extractor():
+def test_pdftables_csv_extractor():
     """Test csv_extractor."""
-    runner = CliRunner()
+    with requests_mock.Mocker() as m:
+        m.post('https://pdftables.com/api', text='csv output')
+        runner = CliRunner()
 
-    result = runner.invoke(
-        cli.main,
-        args=['--csv_extractor', 'pdftables', '--pdftables_key', PDFTABLES_API_KEY, '--output-type', 'CSV', TEST_PDF],
-    )
-    assert result.exit_code == 0
+        result = runner.invoke(
+            cli.main,
+            args=[
+                '--csv_extractor',
+                'pdftables',
+                '--pdftables_key',
+                PDFTABLES_API_KEY,
+                '--output-type',
+                'CSV',
+                TEST_PDF,
+            ],
+        )
+        assert result.exit_code == 0
+        assert "csv output" in result.output
+
+
+def test_pdftables_xml_extractor():
+    """Test xml_extractor."""
+    with requests_mock.Mocker() as m:
+        m.post('https://pdftables.com/api', text='xml output')
+        runner = CliRunner()
+
+        result = runner.invoke(
+            cli.main,
+            args=[
+                '--xml_extractor',
+                'pdftables',
+                '--pdftables_key',
+                PDFTABLES_API_KEY,
+                '--output-type',
+                'XML',
+                TEST_PDF,
+            ],
+        )
+        assert result.exit_code == 0
+        assert "xml output" in result.output
 
 
 def test_html():

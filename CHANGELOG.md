@@ -1,6 +1,10 @@
 # Changelog
 
-## [0.4.0] - 2022-07-22
+## [0.4.2] - 2022-07-25
+### Changed
+- Mock pdftables
+
+## [0.4.1] - 2022-07-22
 ### Changed
 - Fix README
 
