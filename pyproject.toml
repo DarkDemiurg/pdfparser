@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "pdfparser"
-version = "0.4.1"
+version = "0.4.2"
 homepage = "https://github.com/DarkDemiurg/pdfparser"
 description = "PDF parser library."
 authors = ["Dmitriy Efimov <daefimov@gmail.com>"]
