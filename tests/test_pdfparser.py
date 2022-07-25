@@ -73,6 +73,19 @@ def test_pdftables_html_extractor():
         assert result.exit_code == 0
         assert "html output" in result.output
 
+        result = runner.invoke(
+            cli.main,
+            args=[
+                '--html_extractor',
+                'pdftables',
+                '--output-type',
+                'HTML',
+                TEST_PDF,
+            ],
+        )
+        assert result.exit_code == 0
+        assert "Require pdftables.com API key for working. Abort." in result.output
+
 
 def test_pdftables_csv_extractor():
     """Test csv_extractor."""
@@ -95,6 +108,19 @@ def test_pdftables_csv_extractor():
         assert result.exit_code == 0
         assert "csv output" in result.output
 
+        result = runner.invoke(
+            cli.main,
+            args=[
+                '--csv_extractor',
+                'pdftables',
+                '--output-type',
+                'CSV',
+                TEST_PDF,
+            ],
+        )
+        assert result.exit_code == 0
+        assert "Require pdftables.com API key for working. Abort." in result.output
+
 
 def test_pdftables_xml_extractor():
     """Test xml_extractor."""
@@ -116,6 +142,19 @@ def test_pdftables_xml_extractor():
         )
         assert result.exit_code == 0
         assert "xml output" in result.output
+
+        result = runner.invoke(
+            cli.main,
+            args=[
+                '--xml_extractor',
+                'pdftables',
+                '--output-type',
+                'XML',
+                TEST_PDF,
+            ],
+        )
+        assert result.exit_code == 0
+        assert "Require pdftables.com API key for working. Abort." in result.output
 
 
 def test_html():

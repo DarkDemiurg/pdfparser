@@ -21,8 +21,7 @@ class TabulaExtractor(CsvExtractor):
         """
         buf = StringIO()
         dataframes = tabula.read_pdf(filename, pages='all')
-        if dataframes:
-            for frame in dataframes:
-                buf.write(frame.to_csv(sep=';'))
+        for frame in dataframes:
+            buf.write(frame.to_csv(sep=';'))
 
         return buf.getvalue()

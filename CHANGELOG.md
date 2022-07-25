@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.3] - 2022-07-25
+### Changed
+- Fix coverage
+
 ## [0.4.2] - 2022-07-25
 ### Changed
 - Mock pdftables

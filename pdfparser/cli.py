@@ -59,52 +59,43 @@ def main(
 
     pdf = Path(filename)
 
-    if pdf.exists():
-        parser = Parser()
+    parser = Parser()
 
-        if text_extractor.lower() == 'pypdf2':
-            parser.text_extractor = PyPDF2Extractor()
+    if text_extractor.lower() == 'pypdf2':
+        parser.text_extractor = PyPDF2Extractor()
 
-        if csv_extractor.lower() == 'pdftables':
-            if pdftables_key is not None:
-                parser.csv_extractor = PdfTablesExtractor(pdftables_key)
-            else:
-                click.echo("Require pdftables.com API key for working. Abort.")
-
-        if html_extractor.lower() == 'pdftables':
-            if pdftables_key is not None:
-                parser.html_extractor = PdfTablesExtractor(pdftables_key)
-            else:
-                click.echo("Require pdftables.com API key for working. Abort.")
-
-        if xml_extractor.lower() == 'pdftables':
-            if pdftables_key is not None:
-                parser.xml_extractor = PdfTablesExtractor(pdftables_key)
-            else:
-                click.echo("Require pdftables.com API key for working. Abort.")
-
-        result = ''
-
-        output_type = output_type.lower()
-        if output_type == 'txt':
-            result = parser.get_text(pdf)
-
-        if output_type == 'html':
-            result = parser.get_html(pdf)
-
-        if output_type == 'xml':
-            result = parser.get_xml(pdf)
-
-        if output_type == 'csv':
-            result = parser.get_csv(pdf)
-
-        if output is not None:
-            with open(output, 'w') as f:
-                f.write(result)
+    if csv_extractor.lower() == 'pdftables':
+        if pdftables_key is not None:
+            parser.csv_extractor = PdfTablesExtractor(pdftables_key)
         else:
-            print(result)
+            click.echo("Require pdftables.com API key for working. Abort.")
+
+    if html_extractor.lower() == 'pdftables':
+        if pdftables_key is not None:
+            parser.html_extractor = PdfTablesExtractor(pdftables_key)
+        else:
+            click.echo("Require pdftables.com API key for working. Abort.")
+
+    if xml_extractor.lower() == 'pdftables':
+        if pdftables_key is not None:
+            parser.xml_extractor = PdfTablesExtractor(pdftables_key)
+        else:
+            click.echo("Require pdftables.com API key for working. Abort.")
+
+    methods = {
+        'txt': parser.get_text,
+        'html': parser.get_html,
+        'xml': parser.get_xml,
+        'csv': parser.get_csv,
+    }
+
+    result = methods[output_type.lower()](pdf)
+
+    if output is not None:
+        with open(output, 'w') as f:
+            f.write(result)
     else:
-        click.echo(f'Input PDF file {pdf} does not exists. Abort.')
+        print(result)
 
 
 if __name__ == "__main__":
