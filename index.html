@@ -328,6 +328,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pymupdf" class="md-nav__link">
+    pymupdf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pdftablescom-via-python-api" class="md-nav__link">
     pdftables.com via python API
   </a>
@@ -551,6 +558,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pymupdf" class="md-nav__link">
+    pymupdf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pdftablescom-via-python-api" class="md-nav__link">
     pdftables.com via python API
   </a>
@@ -604,7 +618,7 @@
 <!-- BEGIN INCLUDE ../README.md -->
 <p><a href="https://codecov.io/gh/DarkDemiurg/pdfparser"><img alt="codecov" src="https://codecov.io/gh/DarkDemiurg/pdfparser/branch/master/graph/badge.svg?token=tHkHPxsQGr" /></a></p>
 <h2 id="pdf-parser">PDF parser<a class="headerlink" href="#pdf-parser" title="Permanent link">&para;</a></h2>
-<p>Version 0.4.3</p>
+<p>Version 0.5.0</p>
 <h2 id="author">Author<a class="headerlink" href="#author" title="Permanent link">&para;</a></h2>
 <p><a href="mailto:daefimov@gmail.com">DarkDemiurg</a></p>
 <h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
@@ -629,12 +643,14 @@
 Options:
   --output-type <span class="o">[</span>TXT<span class="p">|</span>HTML<span class="p">|</span>XML<span class="p">|</span>CSV<span class="o">]</span>
                                   <span class="o">[</span>default: TXT<span class="o">]</span>
-  --text_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>PyPDF2<span class="o">]</span>
+  --text_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>PyPDF2<span class="p">|</span>PyMuPDF<span class="o">]</span>
                                   <span class="o">[</span>default: pdfminer.six<span class="o">]</span>
-  --html_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>pdftables<span class="o">]</span>
+  --html_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>pdftables<span class="p">|</span>PyMuPDF<span class="o">]</span>
                                   <span class="o">[</span>default: pdfminer.six<span class="o">]</span>
   --csv_extractor <span class="o">[</span>tabula<span class="p">|</span>pdftables<span class="o">]</span>
                                   <span class="o">[</span>default: tabula<span class="o">]</span>
+  --xml_extractor <span class="o">[</span>pdfminer.six<span class="p">|</span>pdftables<span class="p">|</span>PyMuPDF<span class="o">]</span>
+                                  <span class="o">[</span>default: pdfminer.six<span class="o">]</span>
   --pdftables_key TEXT            pdftables.com API key
   --output PATH                   Output file name
   --help                          Show this message and exit.
@@ -649,6 +665,9 @@ Options:
 </li>
 <li>
 <h4 id="tabula-py"><a href="https://github.com/chezou/tabula-py">tabula-py</a><a class="headerlink" href="#tabula-py" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<h4 id="pymupdf"><a href="https://github.com/pymupdf/PyMuPDF">pymupdf</a><a class="headerlink" href="#pymupdf" title="Permanent link">&para;</a></h4>
 </li>
 <li>
 <h4 id="pdftablescom-via-python-api"><a href="http://pdftables.com/..">pdftables.com</a> via <a href="https://github.com/pdftables/python-pdftables-api">python API</a><a class="headerlink" href="#pdftablescom-via-python-api" title="Permanent link">&para;</a></h4>
@@ -692,6 +711,15 @@ Options:
 <td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
 <td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
 <td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pymupdf/PyMuPDF">pymupdf</a></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"><img alt="✔" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2714.svg" title=":heavy_check_mark:" /></td>
+<td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
 <td align="center"></td>
 <td align="center"><img alt="❌" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/274c.svg" title=":x:" /></td>
 </tr>
