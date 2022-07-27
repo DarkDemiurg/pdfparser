@@ -27,30 +27,35 @@ Usage: pdfparser [OPTIONS] FILENAME
 Options:
   --output-type [TXT|HTML|XML|CSV]
                                   [default: TXT]
-  --text_extractor [pdfminer.six|PyPDF2]
+  --text_extractor [pdfminer.six|PyPDF2|PyMuPDF]
                                   [default: pdfminer.six]
-  --html_extractor [pdfminer.six|pdftables]
+  --html_extractor [pdfminer.six|pdftables|PyMuPDF]
                                   [default: pdfminer.six]
   --csv_extractor [tabula|pdftables]
                                   [default: tabula]
+  --xml_extractor [pdfminer.six|pdftables|PyMuPDF]
+                                  [default: pdfminer.six]
   --pdftables_key TEXT            pdftables.com API key
   --output PATH                   Output file name
   --help                          Show this message and exit.
+
 ```
 
 ## Extractors
 - ### [pdfminer.six](https://github.com/pdfminer/pdfminer.six)
 - ### [PyPDF2](https://github.com/py-pdf/PyPDF2)
 - ### [tabula-py](https://github.com/chezou/tabula-py)
+- ### [pymupdf](https://github.com/pymupdf/PyMuPDF)
 - ### [pdftables.com](http://pdftables.com) via [python API](https://github.com/pdftables/python-pdftables-api)
 
 ### Extractors feature table
 
-| Extractors                                          | TXT |        HTML         | XML  | CSV   |     | Commercial     |
-|----------------------------------------------------------|:---:|:---:|:----:|:---:|:---:|:---:|
-| [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |     | :x: |
-| [PyPDF2](https://github.com/py-pdf/PyPDF2)               | :heavy_check_mark: | :x: | :x: | :x: |     | :x: |
+| Extractors                                               | TXT |        HTML         | XML  |        CSV         |     | Commercial     |
+|----------------------------------------------------------|:---:|:---:|:----:|:------------------:|:---:|:---:|
+| [pdfminer.six](https://github.com/pdfminer/pdfminer.six) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |        :x:         |     | :x: |
+| [PyPDF2](https://github.com/py-pdf/PyPDF2)               | :heavy_check_mark: | :x: | :x: |        :x:         |     | :x: |
 | [tabula-py](https://github.com/chezou/tabula-py)         | :x: | :x: | :x: | :heavy_check_mark: |     | :x: |
+| [pymupdf](https://github.com/pymupdf/PyMuPDF)            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |        :x:         |     | :x: |
 | [pdftables.com](http://pdftables.com)                    | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |     |  :heavy_check_mark: |
 
 ## Credits

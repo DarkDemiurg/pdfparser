@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.0] - 2022-07-25
+### Added
+- Add PyMuPDF support
+
 ## [0.4.3] - 2022-07-25
 ### Changed
 - Fix coverage

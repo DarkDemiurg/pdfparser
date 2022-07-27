@@ -51,6 +51,9 @@ def test_text_extractor():
     result = runner.invoke(cli.main, args=['--text_extractor', 'PyPDF2', TEST_PDF])
     assert result.exit_code == 0
 
+    result = runner.invoke(cli.main, args=['--text_extractor', 'PyMuPDF', TEST_PDF])
+    assert result.exit_code == 0
+
 
 def test_pdftables_html_extractor():
     """Test html_extractor."""
@@ -165,6 +168,10 @@ def test_html():
     assert result.exit_code == 0
     assert '<html>' in result.output
 
+    result = runner.invoke(cli.main, args=['--output-type', 'HTML', '--html_extractor', 'pymupdf', TEST_PDF])
+    assert result.exit_code == 0
+    assert '<div id="page0"' in result.output
+
 
 def test_xml():
     """Test XML."""
@@ -173,6 +180,11 @@ def test_xml():
     result = runner.invoke(cli.main, args=['--output-type', 'XML', TEST_PDF])
     assert result.exit_code == 0
     assert '<?xml version="1.0" ?>' in result.output
+
+    result = runner.invoke(cli.main, args=['--output-type', 'XML', '--xml_extractor', 'pymupdf', TEST_PDF])
+    assert result.exit_code == 0
+    assert '<?xml version="1.0" ?>' in result.output
+    assert '<page id="page0"' in result.output
 
 
 def test_csv():
@@ -227,6 +239,10 @@ def test_command_line_help():
     assert help_result.exit_code == 0
     assert 'Usage: main [OPTIONS] FILENAME' in help_result.output
     assert '--output-type [TXT|HTML|XML|CSV]' in help_result.output
-    assert '--text_extractor [pdfminer.six|PyPDF2]' in help_result.output
+    assert '--text_extractor [pdfminer.six|PyPDF2|PyMuPDF]' in help_result.output
+    assert '--html_extractor [pdfminer.six|pdftables|PyMuPDF]' in help_result.output
+    assert '--csv_extractor [tabula|pdftables]' in help_result.output
+    assert '--xml_extractor [pdfminer.six|pdftables|PyMuPDF]' in help_result.output
+    assert '--pdftables_key TEXT' in help_result.output
     assert '--output PATH                   Output file name' in help_result.output
     assert '--help                          Show this message and exit.' in help_result.output

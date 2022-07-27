@@ -4,6 +4,7 @@ from pathlib import Path
 import click
 
 from pdfparser.extractors.pdftables import PdfTablesExtractor
+from pdfparser.extractors.pymupdf import PyMuPDFExtractor
 from pdfparser.extractors.pypdf2 import PyPDF2Extractor
 from pdfparser.parser import Parser
 
@@ -20,13 +21,13 @@ from pdfparser.parser import Parser
     '--text_extractor',
     default='pdfminer.six',
     show_default=True,
-    type=click.Choice(['pdfminer.six', 'PyPDF2'], case_sensitive=False),
+    type=click.Choice(['pdfminer.six', 'PyPDF2', 'PyMuPDF'], case_sensitive=False),
 )
 @click.option(
     '--html_extractor',
     default='pdfminer.six',
     show_default=True,
-    type=click.Choice(['pdfminer.six', 'pdftables'], case_sensitive=False),
+    type=click.Choice(['pdfminer.six', 'pdftables', 'PyMuPDF'], case_sensitive=False),
 )
 @click.option(
     '--csv_extractor',
@@ -38,7 +39,7 @@ from pdfparser.parser import Parser
     '--xml_extractor',
     default='pdfminer.six',
     show_default=True,
-    type=click.Choice(['pdfminer.six', 'pdftables'], case_sensitive=False),
+    type=click.Choice(['pdfminer.six', 'pdftables', 'PyMuPDF'], case_sensitive=False),
 )
 @click.option('--pdftables_key', type=str, help='pdftables.com API key')
 @click.option('--output', type=click.Path(), help='Output file name')
@@ -64,6 +65,9 @@ def main(
     if text_extractor.lower() == 'pypdf2':
         parser.text_extractor = PyPDF2Extractor()
 
+    if text_extractor.lower() == 'pymupdf':
+        parser.text_extractor = PyMuPDFExtractor()
+
     if csv_extractor.lower() == 'pdftables':
         if pdftables_key is not None:
             parser.csv_extractor = PdfTablesExtractor(pdftables_key)
@@ -76,11 +80,17 @@ def main(
         else:
             click.echo("Require pdftables.com API key for working. Abort.")
 
+    if html_extractor.lower() == 'pymupdf':
+        parser.html_extractor = PyMuPDFExtractor()
+
     if xml_extractor.lower() == 'pdftables':
         if pdftables_key is not None:
             parser.xml_extractor = PdfTablesExtractor(pdftables_key)
         else:
             click.echo("Require pdftables.com API key for working. Abort.")
+
+    if xml_extractor.lower() == 'pymupdf':
+        parser.xml_extractor = PyMuPDFExtractor()
 
     methods = {
         'txt': parser.get_text,
