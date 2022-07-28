@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.1] - 2022-07-25
+### Changed
+- Update packages
+
 ## [0.5.0] - 2022-07-25
 ### Added
 - Add PyMuPDF support
