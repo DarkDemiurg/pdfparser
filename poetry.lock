@@ -615,6 +615,14 @@ reference = "master"
 resolved_reference = "a2d329a346197c4dcfc6d1b63b02a89dc87481e6"
 
 [[package]]
+name = "pdftotext"
+version = "2.2.2"
+description = "Simple PDF text extraction"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pkginfo"
 version = "1.8.3"
 description = "Query metadatdata from sdists / bdists / installed packages."
@@ -1108,12 +1116,12 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [extras]
 dev = ["tox", "pre-commit", "virtualenv", "pip", "twine", "toml", "bump2version"]
 doc = ["mkdocs", "mkdocs-include-markdown-plugin", "mkdocs-material", "mkdocstrings", "mkdocs-autorefs"]
-test = ["pytest", "black", "isort", "mypy", "flake8", "flake8-docstrings", "pytest-cov", "PyPDF2", "pdfminer.six", "tabula-py", "pdftables-api", "requests-mock"]
+test = ["pytest", "black", "isort", "mypy", "flake8", "flake8-docstrings", "pytest-cov", "PyPDF2", "pdfminer.six", "tabula-py", "pdftables-api", "requests-mock", "pdftotext"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.*,<3.11"
-content-hash = "3b66f9bb46eca5cbd0fa04bc57575c08a02c1e9d99fdfa8d60c860f8173dd59b"
+content-hash = "f6ca49970ded3db2239b83ca410db9ea8700bf63dd5dfd5ec11f90aedba8e762"
 
 [metadata.files]
 atomicwrites = []
@@ -1247,6 +1255,9 @@ pathspec = []
     {file = "pdfminer.six-20220524.tar.gz", hash = "sha256:5a64c924410ac48501d6060b21638bf401db69f5b1bd57207df7fbc070ac8ae2"},
 ]
 pdftables-api = []
+pdftotext = [
+    {file = "pdftotext-2.2.2.tar.gz", hash = "sha256:2a9aa89bc62022408781b39d188fabf5a3ad1103b6630f32c4e27e395f7966ee"},
+]
 pkginfo = []
 platformdirs = []
 pluggy = []

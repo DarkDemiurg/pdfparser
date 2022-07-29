@@ -54,6 +54,9 @@ def test_text_extractor():
     result = runner.invoke(cli.main, args=['--text_extractor', 'PyMuPDF', TEST_PDF])
     assert result.exit_code == 0
 
+    result = runner.invoke(cli.main, args=['--text_extractor', 'pdftotext', TEST_PDF])
+    assert result.exit_code == 0
+
 
 def test_pdftables_html_extractor():
     """Test html_extractor."""
@@ -239,7 +242,7 @@ def test_command_line_help():
     assert help_result.exit_code == 0
     assert 'Usage: main [OPTIONS] FILENAME' in help_result.output
     assert '--output-type [TXT|HTML|XML|CSV]' in help_result.output
-    assert '--text_extractor [pdfminer.six|PyPDF2|PyMuPDF]' in help_result.output
+    assert '--text_extractor [pdfminer.six|PyPDF2|PyMuPDF|pdftotext]' in help_result.output
     assert '--html_extractor [pdfminer.six|pdftables|PyMuPDF]' in help_result.output
     assert '--csv_extractor [tabula|pdftables]' in help_result.output
     assert '--xml_extractor [pdfminer.six|pdftables|PyMuPDF]' in help_result.output

@@ -4,6 +4,7 @@ from pathlib import Path
 import click
 
 from pdfparser.extractors.pdftables import PdfTablesExtractor
+from pdfparser.extractors.pdftotext import PDFtoTextExtractor
 from pdfparser.extractors.pymupdf import PyMuPDFExtractor
 from pdfparser.extractors.pypdf2 import PyPDF2Extractor
 from pdfparser.parser import Parser
@@ -21,7 +22,7 @@ from pdfparser.parser import Parser
     '--text_extractor',
     default='pdfminer.six',
     show_default=True,
-    type=click.Choice(['pdfminer.six', 'PyPDF2', 'PyMuPDF'], case_sensitive=False),
+    type=click.Choice(['pdfminer.six', 'PyPDF2', 'PyMuPDF', 'pdftotext'], case_sensitive=False),
 )
 @click.option(
     '--html_extractor',
@@ -67,6 +68,9 @@ def main(
 
     if text_extractor.lower() == 'pymupdf':
         parser.text_extractor = PyMuPDFExtractor()
+
+    if text_extractor.lower() == 'pdftotext':
+        parser.text_extractor = PDFtoTextExtractor()
 
     if csv_extractor.lower() == 'pdftables':
         if pdftables_key is not None:

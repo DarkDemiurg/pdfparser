@@ -17,6 +17,10 @@ Version 0.5.1
 - 3.8
 - 3.9
 
+```shell
+sudo apt install build-essential libpoppler-cpp-dev pkg-config python3-dev
+```
+
 ## Usage
 
 ```shell
@@ -27,7 +31,7 @@ Usage: pdfparser [OPTIONS] FILENAME
 Options:
   --output-type [TXT|HTML|XML|CSV]
                                   [default: TXT]
-  --text_extractor [pdfminer.six|PyPDF2|PyMuPDF]
+  --text_extractor [pdfminer.six|PyPDF2|PyMuPDF|pdftotext]
                                   [default: pdfminer.six]
   --html_extractor [pdfminer.six|pdftables|PyMuPDF]
                                   [default: pdfminer.six]
@@ -46,6 +50,7 @@ Options:
 - ### [PyPDF2](https://github.com/py-pdf/PyPDF2)
 - ### [tabula-py](https://github.com/chezou/tabula-py)
 - ### [pymupdf](https://github.com/pymupdf/PyMuPDF)
+- ### [pdftotext](https://github.com/jalan/pdftotext)
 - ### [pdftables.com](http://pdftables.com) via [python API](https://github.com/pdftables/python-pdftables-api)
 
 ### Extractors feature table
@@ -56,6 +61,7 @@ Options:
 | [PyPDF2](https://github.com/py-pdf/PyPDF2)               | :heavy_check_mark: | :x: | :x: |        :x:         |     | :x: |
 | [tabula-py](https://github.com/chezou/tabula-py)         | :x: | :x: | :x: | :heavy_check_mark: |     | :x: |
 | [pymupdf](https://github.com/pymupdf/PyMuPDF)            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |        :x:         |     | :x: |
+| [pdftotext](https://github.com/jalan/pdftotext) | :heavy_check_mark: | :x: | :x: |        :x:         |     | :x: |
 | [pdftables.com](http://pdftables.com)                    | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |     |  :heavy_check_mark: |
 
 ## Credits

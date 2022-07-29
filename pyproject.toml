@@ -27,6 +27,7 @@ PyPDF2 = "^2.5.0"
 tabula-py = "^2.4.0"
 pdftables-api = {git = "https://github.com/pdftables/python-pdftables-api.git"}
 PyMuPDF = "^1.20.1"
+pdftotext = "^2.2.2"
 
 black  = { version = "^22.6.0", optional = true}
 isort  = { version = "^5.10.0", optional = true}
@@ -63,7 +64,8 @@ test = [
     "pdfminer.six",
     "tabula-py",
     "pdftables-api",
-    "requests-mock"
+    "requests-mock",
+    "pdftotext"
     ]
 
 dev = ["tox", "pre-commit", "virtualenv", "pip", "twine", "toml", "bump2version"]

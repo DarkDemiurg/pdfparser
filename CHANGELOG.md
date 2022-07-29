@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.2] - 2022-07-26
+### Added
+- Add pdftotext
+
 ## [0.5.1] - 2022-07-25
 ### Changed
 - Update packages
