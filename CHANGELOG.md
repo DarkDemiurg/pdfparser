@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.2] - 2025-02-05
+### Changed
+- Remove MacOS & Windows from dev pipeline in GitHub Actions
+
 ## [1.0.1] - 2025-02-05
 ### Changed
 - Fix GitHub Actions
