@@ -1,7 +1,7 @@
 [![codecov](https://codecov.io/gh/DarkDemiurg/pdfparser/branch/master/graph/badge.svg?token=tHkHPxsQGr)](https://codecov.io/gh/DarkDemiurg/pdfparser)
 
 # PDF parser
-Version 1.0.1
+Version 1.0.2
 
 # Author
 [DarkDemiurg](mailto:daefimov@gmail.com)
