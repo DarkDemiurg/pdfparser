@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1] - 2025-02-05
+### Changed
+- Fix GitHub Actions
+
 ## [1.0.0] - 2025-02-04
 ### Added
 - Python 3.10 support
