@@ -1,4 +1,5 @@
 """Specific extractor based on `pdftables` library"""
+
 from pathlib import Path
 
 import pdftables_api

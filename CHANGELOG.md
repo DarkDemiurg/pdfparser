@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.0] - 2025-02-04
+### Added
+- Python 3.10 support
+
+### Removed
+- Python 3.8 support
+
+### Changed
+- Update packages to latest versions
+
 ## [0.5.2] - 2022-07-26
 ### Added
 - Add pdftotext

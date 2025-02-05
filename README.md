@@ -14,8 +14,8 @@ Version 0.5.2
 ### Java
 - Java 8+
 ### Python
-- 3.8
 - 3.9
+- 3.10
 
 ```shell
 sudo apt install build-essential libpoppler-cpp-dev pkg-config python3-dev

@@ -1,4 +1,5 @@
 """Console script for pdfparser."""
+
 from pathlib import Path
 
 import click

@@ -1,4 +1,5 @@
 """Specific extractor based on `tabula-py` library"""
+
 from io import StringIO
 from pathlib import Path
 
@@ -22,6 +23,6 @@ class TabulaExtractor(CsvExtractor):
         buf = StringIO()
         dataframes = tabula.read_pdf(filename, pages='all')
         for frame in dataframes:
-            buf.write(frame.to_csv(sep=';'))
+            buf.write(frame.to_csv(sep=';'))  # type: ignore
 
         return buf.getvalue()

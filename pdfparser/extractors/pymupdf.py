@@ -1,4 +1,5 @@
 """Specific extractor based on `PyMuPDF` library"""
+
 from abc import ABC
 from io import StringIO
 from pathlib import Path

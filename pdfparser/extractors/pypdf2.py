@@ -1,4 +1,5 @@
 """Specific extractor based on `PyPDF2` library"""
+
 from io import StringIO
 from pathlib import Path
 
